@@ -1,0 +1,21 @@
+/* Global styles - inherits from oxibooru core CSS */
+/* The main styles are loaded via <link> tags in layout.tsx */
+/* This file handles any Next.js-specific overrides */
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+/* Next.js dev indicator fix */
+#__next-build-indicator {
+  z-index: 99999;
+}
+
+/* Ensure content holder works with Next.js */
+#content-holder {
+  /* Styles from core-general.styl */
+}
