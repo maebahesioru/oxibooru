@@ -27,14 +27,22 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <link rel="stylesheet" href="/vendor.css" />
-        <link rel="stylesheet" href="/app.css" />
+        <link href="/css/app.min.css" rel="stylesheet" type="text/css" />
+        <link href="/css/vendor.min.css" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" type="image/png" href="/img/favicon.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#24aadd" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/img/mstile-150x150.png" />
+        <base href="/" />
       </head>
       <body>
-        <TopNavigation />
+        <div id="top-navigation-holder">
+          <TopNavigation />
+        </div>
         <div id="content-holder">{children}</div>
         <script src="https://unpkg.com/@ruffle-rs/ruffle" async />
       </body>
@@ -57,6 +65,7 @@ function TopNavigation() {
     { key: "register", title: "Register", url: "/register" },
     { key: "login", title: "Log in", url: "/login" },
     { key: "help", title: "Help", url: "/help" },
+    { key: "settings", title: "Settings", url: "/settings" },
   ];
 
   return (

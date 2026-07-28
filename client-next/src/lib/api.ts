@@ -38,6 +38,9 @@ export interface Tag {
   category: string;
   description: string;
   usages: number;
+  postCount?: number;
+  implications?: Tag[];
+  suggestions?: Tag[];
 }
 
 export interface MicroUser {

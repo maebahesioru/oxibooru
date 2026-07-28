@@ -1,7 +1,6 @@
 import { getConfig } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
-export const revalidate = 60;
 
 export default async function HomePage() {
   let config;
@@ -30,7 +29,6 @@ export default async function HomePage() {
           name="search-text"
           id="search-text"
           placeholder="enter some tags"
-          className="search-input"
         />
         <input type="submit" value="Search" />
         <span className="sep">or</span>
@@ -62,7 +60,6 @@ function formatBytes(bytes: number): string {
   if (!bytes || bytes === 0) return "0 B";
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  if (bytes < 1024 * 1024 * 1024)
-    return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+  if (bytes < 1024 * 1024 * 1024) return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
   return `${(bytes / (1024 * 1024 * 1024)).toFixed(1)} GB`;
 }
