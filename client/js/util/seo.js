@@ -70,15 +70,14 @@ function update() {
         title = "Post #" + postId + " | " + siteName;
 
         // Try to extract tags from the DOM
-        const tagLinks = document.querySelectorAll(
-            ".post-content-container a[href^='/tag/'], " +
-            ".sidebar a[href^='/tag/'], " +
-            "#content-holder a[href^='/tag/']"
-        );
+        const tagNav = document.querySelector("nav.tags");
+        const tagLinks = tagNav ? tagNav.querySelectorAll("a") : [];
         const tags = [];
         const seen = {};
         tagLinks.forEach((a) => {
-            const t = a.textContent.trim().replace(/^[?]/, "").replace(/[?]$/, "");
+            // Skip icon-only links (fa-tag)
+            if (a.querySelector("i.fa-tag")) return;
+            const t = a.textContent.trim();
             if (t && t.length > 0 && t !== "+" && !seen[t]) {
                 seen[t] = true;
                 tags.push(t);

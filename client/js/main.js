@@ -38,7 +38,9 @@ router.enter(null, (ctx, next) => {
     next();
 });
 router.enter(null, (ctx, next) => {
-    setTimeout(() => seo.update(), 300);
+    setTimeout(() => seo.update(), 800);
+    // Also retry later for async-loaded content
+    setTimeout(() => seo.update(), 2500);
     next();
 });
 
