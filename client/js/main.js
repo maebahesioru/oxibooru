@@ -31,9 +31,14 @@ router.exit(null, (ctx, next) => {
     }
 });
 
+const seo = require("./util/seo.js");
 const mousetrap = require("mousetrap");
 router.enter(null, (ctx, next) => {
     mousetrap.reset();
+    next();
+});
+router.enter(null, (ctx, next) => {
+    setTimeout(() => seo.update(), 300);
     next();
 });
 
