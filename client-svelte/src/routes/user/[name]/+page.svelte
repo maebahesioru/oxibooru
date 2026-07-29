@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { formatRelativeTime } from '$lib/format';
+    import { formatRelativeTime, absUrl } from '$lib/format';
     import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();
@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex flex-wrap gap-6">
-    <img src={u.avatarUrl} alt="" class="size-24 rounded-box object-cover" />
+    <img src={absUrl(u.avatarUrl)} alt="" class="size-24 rounded-box object-cover" />
 
     <ul class="space-y-1 text-sm">
         <li><span class="opacity-70">Registered:</span> {formatRelativeTime(u.creationTime)}</li>

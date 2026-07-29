@@ -10,6 +10,11 @@ export function formatFileSize(bytes: number): string {
     return `${value.toFixed(digits)}${unit}`;
 }
 
+/** API returns relative URLs (e.g. "data/avatars/...") — ensure they have leading / */
+export function absUrl(url: string): string {
+    return url.startsWith('/') || url.startsWith('http') ? url : `/${url}`;
+}
+
 const STEPS: [number, string, number | null][] = [
     [60, 'a few seconds', null],
     [120, 'a minute', null],

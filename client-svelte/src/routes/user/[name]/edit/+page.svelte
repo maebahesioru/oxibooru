@@ -61,7 +61,7 @@
         <fieldset class="fieldset rounded-box border border-base-300 p-3">
             <legend class="fieldset-legend">Avatar</legend>
             <div class="flex flex-wrap gap-4">
-                <img src={u.avatarUrl} alt="" class="size-16 rounded-box object-cover" />
+                <img src={absUrl(u.avatarUrl)} alt="" class="size-16 rounded-box object-cover" />
                 <div class="grow space-y-2">
                     <label class="label cursor-pointer justify-start gap-2">
                         <input

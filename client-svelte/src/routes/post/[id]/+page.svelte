@@ -4,7 +4,7 @@
     import PostContent from '$lib/components/PostContent.svelte';
     import CommentList from '$lib/components/CommentList.svelte';
     import CommentEditor from '$lib/components/CommentEditor.svelte';
-    import { cssCategory, formatFileSize, formatRelativeTime, mimeLabel, prettyTagName, rootDomain, escapeTagName } from '$lib/format';
+    import { cssCategory, formatFileSize, formatRelativeTime, mimeLabel, prettyTagName, rootDomain, escapeTagName, absUrl } from '$lib/format';
     import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();
@@ -49,7 +49,7 @@
 
                 <p class="flex items-center gap-2">
                     {#if post.user}
-                        <img src={post.user.avatarUrl} alt="" class="size-5 rounded-full" />
+                        <img src={absUrl(post.user.avatarUrl)} alt="" class="size-5 rounded-full" />
                         <a class="link" href={`/user/${post.user.name}`}>{post.user.name}</a>
                     {:else}
                         <span class="opacity-70">Anonymous</span>
@@ -112,7 +112,7 @@
                     {#each post.relations as rel (rel.id)}
                         <li>
                             <a href={`/post/${rel.id}${qs}`}>
-                                <img src={rel.thumbnailUrl} alt="" class="h-16 w-20 rounded object-cover" />
+                                <img src={absUrl(rel.thumbnailUrl)} alt="" class="h-16 w-20 rounded object-cover" />
                             </a>
                         </li>
                     {/each}

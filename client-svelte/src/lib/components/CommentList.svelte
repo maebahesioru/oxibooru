@@ -1,7 +1,7 @@
 <script lang="ts">
     import { enhance } from '$app/forms';
     import CommentEditor from './CommentEditor.svelte';
-    import { formatRelativeTime } from '$lib/format';
+    import { formatRelativeTime, absUrl } from '$lib/format';
     import type { Comment, User } from '$lib/types';
 
     let {
@@ -28,7 +28,7 @@
             <div class="card-body gap-2 p-4">
                 <header class="flex flex-wrap items-center gap-2 text-sm">
                     {#if comment.user}
-                        <img src={comment.user.avatarUrl} alt="" class="size-6 rounded-full" />
+                        <img src={absUrl(comment.user.avatarUrl)} alt="" class="size-6 rounded-full" />
                         <a class="link font-medium" href={`/user/${comment.user.name}`}>{comment.user.name}</a>
                     {:else}
                         <span class="font-medium opacity-70">Anonymous</span>

@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { User } from '$lib/types';
+    import { absUrl } from '$lib/format';
 
     let {
         siteName,
@@ -57,7 +58,7 @@
         {#if user}
             <div class="dropdown dropdown-end">
                 <button class="btn btn-ghost btn-sm gap-2" popovertarget="user-menu">
-                    <img src={user.avatarUrl} alt="" class="size-6 rounded-full object-cover" />
+                    <img src={absUrl(user.avatarUrl)} alt="" class="size-6 rounded-full object-cover" />
                     <span class="hidden sm:inline">{user.name}</span>
                 </button>
                 <ul id="user-menu" popover class="dropdown-content menu z-50 w-52 rounded-box bg-base-200 p-2 shadow">

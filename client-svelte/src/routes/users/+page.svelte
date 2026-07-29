@@ -3,6 +3,7 @@
     import Pagination from '$lib/components/Pagination.svelte';
     import SearchForm from '$lib/components/SearchForm.svelte';
     import { formatRelativeTime } from '$lib/format';
+import { absUrl } from '$lib/format';
     import type { PageData } from './$types';
 
     let { data }: { data: PageData } = $props();
@@ -20,7 +21,7 @@
         <li class="card card-border bg-base-200">
             <div class="card-body flex-row items-center gap-3 p-4">
                 <a href={`/user/${user.name}`}>
-                    <img src={user.avatarUrl} alt="" class="size-12 rounded-box object-cover" />
+                    <img src={absUrl(user.avatarUrl)} alt="" class="size-12 rounded-box object-cover" />
                 </a>
                 <div class="min-w-0 text-sm">
                     <a class="link link-hover font-medium" href={`/user/${user.name}`}>{user.name}</a>
