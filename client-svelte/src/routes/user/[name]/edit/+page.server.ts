@@ -5,7 +5,7 @@ import type { User } from '$lib/types';
 
 export const load: PageServerLoad = async ({ parent }) => {
     const { can } = await parent();
-    if (!can.editAnything) error(403, "編集権限がありません:  users.");
+    if (!can.editAnything) error(403, "編集権限がありません。");
     return {};
 };
 

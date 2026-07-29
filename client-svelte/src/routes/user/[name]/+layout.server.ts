@@ -26,7 +26,7 @@ export const load: LayoutServerLoad = async ({ params, locals }) => {
         userNamePattern: locals.info.config.userNameRegex,
         passwordPattern: locals.info.config.passwordRegex,
         can: {
-            editAnything: can(`user_edit_${infix}`),
+            editAnything: can(`user_edit_${infix}_name`) || can(`user_edit_${infix}_pass`) || can(`user_edit_${infix}_email`) || can(`user_edit_${infix}_avatar`),
             name: can(`user_edit_${infix}_name`),
             password: can(`user_edit_${infix}_pass`),
             email: can(`user_edit_${infix}_email`),

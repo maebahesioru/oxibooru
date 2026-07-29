@@ -4,7 +4,7 @@ import { setFlash } from '$lib/server/flash';
 
 export const load: PageServerLoad = async ({ parent }) => {
     const { can } = await parent();
-    if (!can.delete) error(403, "削除権限がありません:  users.");
+    if (!can.delete) error(403, "削除権限がありません。");
     return {};
 };
 
