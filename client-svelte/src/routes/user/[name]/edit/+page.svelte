@@ -14,7 +14,7 @@
 
     {#if data.can.name}
         <label class="form-control">
-            <span class="label-text mb-1 block">User name</span>
+            <span class="label-text mb-1 block">ユーザー名</span>
             <input
                 name="name"
                 value={u.name}
@@ -27,7 +27,7 @@
 
     {#if data.can.password}
         <label class="form-control">
-            <span class="label-text mb-1 block">Password</span>
+            <span class="label-text mb-1 block">パスワード</span>
             <input
                 name="password"
                 type="password"
@@ -41,7 +41,7 @@
 
     {#if data.can.email}
         <label class="form-control">
-            <span class="label-text mb-1 block">Email</span>
+            <span class="label-text mb-1 block">メールアドレス</span>
             <input name="email" type="email" value={u.email ?? ''} class="input input-bordered w-full" />
         </label>
     {/if}
@@ -59,7 +59,7 @@
 
     {#if data.can.avatar}
         <fieldset class="fieldset rounded-box border border-base-300 p-3">
-            <legend class="fieldset-legend">Avatar</legend>
+            <legend class="fieldset-legend">アバター</legend>
             <div class="flex flex-wrap gap-4">
                 <img src={absUrl(u.avatarUrl)} alt="" class="size-16 rounded-box object-cover" />
                 <div class="grow space-y-2">
@@ -91,5 +91,5 @@
         </fieldset>
     {/if}
 
-    <button class="btn btn-primary">Save settings</button>
+    <button class="btn btn-primary">設定を保存</button>
 </form>

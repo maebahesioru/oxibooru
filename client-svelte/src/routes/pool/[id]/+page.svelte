@@ -17,10 +17,10 @@
     <h1 class="mb-4 text-2xl break-all">{pretty(pool.names[0])}</h1>
 
     <div role="tablist" class="tabs tabs-lift">
-        <button role="tab" class="tab" class:tab-active={section === 'summary'} onclick={() => (section = 'summary')}>Summary</button>
+        <button role="tab" class="tab" class:tab-active={section === 'summary'} onclick={() => (section = 'summary')}>概要</button>
         {#if data.can.edit}<button role="tab" class="tab" class:tab-active={section === 'edit'} onclick={() => (section = 'edit')}>Edit</button>{/if}
-        {#if data.can.merge}<button role="tab" class="tab" class:tab-active={section === 'merge'} onclick={() => (section = 'merge')}>Merge</button>{/if}
-        {#if data.can.delete}<button role="tab" class="tab text-error" class:tab-active={section === 'delete'} onclick={() => (section = 'delete')}>Delete</button>{/if}
+        {#if data.can.merge}<button role="tab" class="tab" class:tab-active={section === 'merge'} onclick={() => (section = 'merge')}>統合</button>{/if}
+        {#if data.can.delete}<button role="tab" class="tab text-error" class:tab-active={section === 'delete'} onclick={() => (section = 'delete')}>削除</button>{/if}
     </div>
 
     <div class="rounded-b-box border border-t-0 border-base-300 p-4">
@@ -58,13 +58,13 @@
                 <input type="hidden" name="version" value={pool.version} />
                 {#if data.can.names}
                     <label class="form-control">
-                        <span class="label-text mb-1 block">Names</span>
+                        <span class="label-text mb-1 block">名前</span>
                         <input name="names" required value={pool.names.join(' ')} class="input input-bordered w-full" />
                     </label>
                 {/if}
                 {#if data.can.category}
                     <label class="form-control">
-                        <span class="label-text mb-1 block">Category</span>
+                        <span class="label-text mb-1 block">カテゴリ</span>
                         <select name="category" class="select select-bordered w-full">
                             {#each data.categories as c (c)}
                                 <option value={c} selected={c === pool.category}>{c}</option>
@@ -74,7 +74,7 @@
                 {/if}
                 {#if data.can.description}
                     <label class="form-control">
-                        <span class="label-text mb-1 block">Description</span>
+                        <span class="label-text mb-1 block">説明</span>
                         <textarea name="description" rows="8" class="textarea textarea-bordered w-full">{pool.description ?? ''}</textarea>
                     </label>
                 {/if}
@@ -89,7 +89,7 @@
                         />
                     </label>
                 {/if}
-                <button class="btn btn-primary">Save changes</button>
+                <button class="btn btn-primary">変更を保存</button>
             </form>
         {:else if section === 'merge'}
             <form method="POST" action="?/merge" class="space-y-4">
@@ -98,7 +98,7 @@
                 <label class="label cursor-pointer justify-start gap-2">
                     <input type="checkbox" required class="checkbox" /> 統合することを確認しました。
                 </label>
-                <button class="btn btn-warning">Merge pool</button>
+                <button class="btn btn-warning">プールを統合</button>
             </form>
         {:else}
             <form method="POST" action="?/delete" class="space-y-4">
@@ -107,7 +107,7 @@
                 <label class="label cursor-pointer justify-start gap-2">
                     <input type="checkbox" required class="checkbox" /> 削除することを確認しました。
                 </label>
-                <button class="btn btn-error">Delete pool</button>
+                <button class="btn btn-error">プールを削除</button>
             </form>
         {/if}
     </div>

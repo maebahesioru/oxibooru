@@ -20,7 +20,7 @@
         <SearchForm action="/tags" query={data.query} helpHref="/help/search/tags" />
     </div>
     {#if data.canEditCategories}
-        <a class="btn btn-outline btn-sm" href="/tag-categories">Tag categories</a>
+        <a class="btn btn-outline btn-sm" href="/tag-categories">タグカテゴリ</a>
     {/if}
 </div>
 
@@ -29,10 +29,10 @@
         <thead>
             <tr>
                 <th><a class="link" href="/tags?query=sort:name">Tag name(s)</a></th>
-                <th>Implications</th>
-                <th>Suggestions</th>
-                <th class="text-center"><a class="link" href="/tags?query=sort:usages">Usages</a></th>
-                <th class="text-center">Created</th>
+                <th>含意</th>
+                <th>提案</th>
+                <th class="text-center"><a class="link" href="/tags?query=sort:usages">使用数</a></th>
+                <th class="text-center">作成日</th>
             </tr>
         </thead>
         <tbody>

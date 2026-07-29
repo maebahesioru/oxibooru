@@ -3,7 +3,7 @@ import { error } from '@sveltejs/kit';
 import type { Paged, User } from '$lib/types';
 
 export const load: PageServerLoad = async ({ locals, url }) => {
-    if (!locals.can('user_list')) error(403, "You don't have privileges to view users.");
+    if (!locals.can('user_list')) error(403, "閲覧権限がありません:  users.");
     const query = url.searchParams.get('query') ?? '';
     const offset = Number(url.searchParams.get('offset') ?? 0);
     const limit = Number(url.searchParams.get('limit') ?? 30);

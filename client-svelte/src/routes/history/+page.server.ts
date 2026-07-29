@@ -12,7 +12,7 @@ interface Snapshot {
 }
 
 export const load: PageServerLoad = async ({ locals, url }) => {
-    if (!locals.can('snapshot_list')) error(403, "You don't have privileges to view history.");
+    if (!locals.can('snapshot_list')) error(403, "閲覧権限がありません:  history.");
     const offset = Number(url.searchParams.get('offset') ?? 0);
     const limit = Number(url.searchParams.get('limit') ?? 25);
     return {

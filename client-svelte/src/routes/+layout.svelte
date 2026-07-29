@@ -36,8 +36,8 @@
 
     <footer class="border-t border-base-300 bg-base-200 p-4 text-center text-xs">
         {data.siteName} &middot;
-        <a class="link" href="/help">Help</a> &middot;
-        <a class="link" href="/history">History</a>
+        <a class="link" href="/help">ヘルプ</a> &middot;
+        <a class="link" href="/history">履歴</a>
     </footer>
 </div>
 

@@ -5,7 +5,7 @@ import type { Paged, Tag } from '$lib/types';
 const FIELDS = ['names', 'suggestions', 'implications', 'creationTime', 'usages', 'category'];
 
 export const load: PageServerLoad = async ({ locals, url }) => {
-    if (!locals.can('tag_list')) error(403, "You don't have privileges to view tags.");
+    if (!locals.can('tag_list')) error(403, "閲覧権限がありません:  tags.");
 
     const query = url.searchParams.get('query') ?? '';
     const offset = Number(url.searchParams.get('offset') ?? 0);

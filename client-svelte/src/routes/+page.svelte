@@ -15,7 +15,7 @@
         {#if data.canListPosts}
             <div class="w-full max-w-2xl">
                 <SearchForm action="/posts" helpHref="/help/search/posts" placeholder="enter some tags" />
-                <a class="link link-hover mt-2 inline-block text-sm" href="/posts">browse all posts</a>
+                <a class="link link-hover mt-2 inline-block text-sm" href="/posts">すべての投稿を見る</a>
             </div>
         {/if}
     </div>
@@ -44,6 +44,6 @@
     <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1">
         <li>{data.stats.postCount} posts</li>
         <li>{formatFileSize(data.stats.diskUsage)}</li>
-        {#if data.canListSnapshots}<li><a class="link" href="/history">History</a></li>{/if}
+        {#if data.canListSnapshots}<li><a class="link" href="/history">履歴</a></li>{/if}
     </ul>
 </footer>

@@ -1,30 +1,30 @@
 export type Row = [string, string] | [string, string, string];
 
 export const SECTIONS = [
-    { key: 'about', label: 'About' },
-    { key: 'keyboard', label: 'Keyboard' },
-    { key: 'search', label: 'Search syntax' },
-    { key: 'comments', label: 'Comments' },
-    { key: 'tos', label: 'Terms of service' }
+    { key: 'about', label: '概要' },
+    { key: 'keyboard', label: 'キーボード' },
+    { key: 'search', label: '検索構文' },
+    { key: 'comments', label: 'コメント' },
+    { key: 'tos', label: '利用規約' }
 ] as const;
 
 export const SEARCH_SUBSECTIONS = [
-    { key: 'default', label: 'General' },
-    { key: 'posts', label: 'Posts' },
-    { key: 'users', label: 'Users' },
-    { key: 'tags', label: 'Tags' },
-    { key: 'pools', label: 'Pools' }
+    { key: 'default', label: '全般' },
+    { key: 'posts', label: '投稿' },
+    { key: 'users', label: 'ユーザー' },
+    { key: 'tags', label: 'タグ' },
+    { key: 'pools', label: 'プール' }
 ] as const;
 
 export const KEYBOARD: Row[] = [
     ['Q', 'Focus search field, if available'],
     ['A / D, ← / →', 'Go to newer/older page or post'],
-    ['F', 'Cycle post fit mode'],
-    ['E', 'Edit post'],
-    ['P', 'Focus first post in post list'],
+    ['F', '表示モード切替'],
+    ['E', '投稿を編集'],
+    ['P', '先頭の投稿にフォーカス'],
     ['T', '(In edit mode) Focus tag input'],
     ['Ctrl/Cmd+S', '(In edit mode) Save post'],
-    ['Delete', '(In edit mode) Delete post']
+    ['削除', '(In edit mode) Delete post']
 ];
 
 export const COMMENT_SYNTAX: Row[] = [

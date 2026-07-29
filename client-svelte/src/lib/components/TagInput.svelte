@@ -47,7 +47,7 @@
                 }
             }}
         />
-        <button type="button" class="btn btn-neutral join-item" onclick={() => add(draft)}>Add</button>
+        <button type="button" class="btn btn-neutral join-item" onclick={() => add(draft)}>追加</button>
     </div>
     {#if input}
         <Autocomplete

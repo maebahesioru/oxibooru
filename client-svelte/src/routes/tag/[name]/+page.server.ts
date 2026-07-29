@@ -8,7 +8,7 @@ import type { Category, Tag } from '$lib/types';
 
 export const load: PageServerLoad = async ({ params, locals }) => {
     const { api, can } = locals;
-    if (!can('tag_view')) error(403, "You don't have privileges to view tags.");
+    if (!can('tag_view')) error(403, "閲覧権限がありません:  tags.");
 
     const tag = await api.get<Tag>(`/tag/${encodeURIComponent(params.name)}`);
     const categories = await cached('tag-categories', 60_000, () =>

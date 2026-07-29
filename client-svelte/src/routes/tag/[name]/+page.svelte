@@ -62,13 +62,13 @@
                 <input type="hidden" name="version" value={tag.version} />
                 {#if data.can.names}
                     <label class="form-control">
-                        <span class="label-text mb-1 block">Names</span>
+                        <span class="label-text mb-1 block">名前</span>
                         <input name="names" required value={tag.names.join(' ')} class="input input-bordered w-full" />
                     </label>
                 {/if}
                 {#if data.can.category}
                     <label class="form-control">
-                        <span class="label-text mb-1 block">Category</span>
+                        <span class="label-text mb-1 block">カテゴリ</span>
                         <select name="category" class="select select-bordered w-full">
                             {#each data.categories as c (c)}
                                 <option value={c} selected={c === tag.category}>{c}</option>
@@ -78,23 +78,23 @@
                 {/if}
                 {#if data.can.implications}
                     <fieldset class="fieldset rounded-box border border-base-300 p-3">
-                        <legend class="fieldset-legend">Implications</legend>
+                        <legend class="fieldset-legend">含意タグ</legend>
                         <TagInput name="implications" initial={tag.implications} />
                     </fieldset>
                 {/if}
                 {#if data.can.suggestions}
                     <fieldset class="fieldset rounded-box border border-base-300 p-3">
-                        <legend class="fieldset-legend">Suggestions</legend>
+                        <legend class="fieldset-legend">提案タグ</legend>
                         <TagInput name="suggestions" initial={tag.suggestions} />
                     </fieldset>
                 {/if}
                 {#if data.can.description}
                     <label class="form-control">
-                        <span class="label-text mb-1 block">Description</span>
+                        <span class="label-text mb-1 block">説明</span>
                         <textarea name="description" rows="8" class="textarea textarea-bordered w-full">{tag.description ?? ''}</textarea>
                     </label>
                 {/if}
-                <button class="btn btn-primary">Save changes</button>
+                <button class="btn btn-primary">変更を保存</button>
             </form>
         {:else if section === 'merge'}
             <form method="POST" action="?/merge" class="space-y-4">
@@ -102,13 +102,13 @@
                     使用箇所・示唆・含意が統合されます。カテゴリは手動で調整してください。
                 </p>
                 <label class="form-control">
-                    <span class="label-text mb-1 block">Target tag</span>
+                    <span class="label-text mb-1 block">統合先タグ</span>
                     <input name="target" required class="input input-bordered w-full" />
                 </label>
                 <label class="label cursor-pointer justify-start gap-2">
                     <input type="checkbox" required class="checkbox" /> 統合を実行することを確認しました。
                 </label>
-                <button class="btn btn-warning">Merge tag</button>
+                <button class="btn btn-warning">タグを統合</button>
             </form>
         {:else}
             <form method="POST" action="?/delete" class="space-y-4">
@@ -117,7 +117,7 @@
                 <label class="label cursor-pointer justify-start gap-2">
                     <input type="checkbox" required class="checkbox" /> 削除することを確認しました。
                 </label>
-                <button class="btn btn-error">Delete tag</button>
+                <button class="btn btn-error">タグを削除</button>
             </form>
         {/if}
     </div>

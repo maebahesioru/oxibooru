@@ -31,7 +31,7 @@ function serveDataFile(event: Parameters<Handle>[0]['event']) {
     const safe = normalize(relative).replace(/^(\.\.(\/|\\|$))+/, '');
     const filePath = join(DATA_DIR, safe);
 
-    if (!existsSync(filePath)) return new Response('Not found', { status: 404 });
+    if (!existsSync(filePath)) return new Response('見つかりません', { status: 404 });
 
     try {
         const stat = statSync(filePath);
@@ -68,7 +68,7 @@ function serveDataFile(event: Parameters<Handle>[0]['event']) {
             },
         });
     } catch {
-        return new Response('Internal error', { status: 500 });
+        return new Response('内部エラー', { status: 500 });
     }
 }
 
@@ -115,5 +115,5 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 export const handleError: HandleServerError = ({ error, status }) => {
     if (status !== 404) console.error(error);
-    return { message: error instanceof Error ? error.message : 'Unexpected error' };
+    return { message: error instanceof Error ? error.message : '予期せぬエラー' };
 };

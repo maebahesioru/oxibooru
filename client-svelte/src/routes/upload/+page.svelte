@@ -8,7 +8,7 @@
 </script>
 
 <div class="mx-auto w-full max-w-2xl">
-    <h1 class="mb-4 text-2xl">Upload</h1>
+    <h1 class="mb-4 text-2xl">アップロード</h1>
 
     {#if form?.message}
         <div role="alert" class="alert alert-error mb-4 whitespace-pre-line">{form.message}</div>
@@ -33,7 +33,7 @@
 
         {#if data.safetyEnabled}
             <fieldset class="fieldset rounded-box border border-base-300 p-3">
-                <legend class="fieldset-legend">Safety</legend>
+                <legend class="fieldset-legend">セーフティ</legend>
                 <div class="join w-full">
                     {#each ['safe', 'sketchy', 'unsafe'] as safety (safety)}
                         <input

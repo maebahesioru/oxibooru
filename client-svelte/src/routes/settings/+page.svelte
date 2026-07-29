@@ -33,7 +33,7 @@
 
         <fieldset class="fieldset rounded-box border border-base-300 p-4">
             <legend class="fieldset-legend">表示する安全度</legend>
-            {#each [['listSafe', 'Safe'], ['listSketchy', 'Sketchy'], ['listUnsafe', 'Unsafe']] as [key, label] (key)}
+            {#each [['listSafe', '安全'], ['listSketchy', '怪しい'], ['listUnsafe', '危険']] as [key, label] (key)}
                 <label class="label cursor-pointer justify-start gap-2">
                     <input type="checkbox" name={key} class="toggle toggle-primary" checked={s[key]} />
                     {label}

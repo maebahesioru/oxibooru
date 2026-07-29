@@ -7,7 +7,7 @@ import type { Post } from '$lib/types';
 
 export const load: PageServerLoad = async ({ params, locals, url }) => {
     const { api, can, settings, info } = locals;
-    if (!can('post_view')) error(403, "You don't have privileges to view posts.");
+    if (!can('post_view')) error(403, "閲覧権限がありません:  posts.");
 
     const id = Number(params.id);
     const query = url.searchParams.get('query') ?? '';

@@ -59,9 +59,9 @@
             <input type="hidden" name="text" value={text} />
         {/if}
         <div class="mt-2 flex gap-2">
-            <button class="btn btn-primary btn-sm">Save</button>
+            <button class="btn btn-primary btn-sm">保存</button>
             {#if oncancel}
-                <button type="button" class="btn btn-ghost btn-sm" onclick={oncancel}>Cancel</button>
+                <button type="button" class="btn btn-ghost btn-sm" onclick={oncancel}>キャンセル</button>
             {/if}
         </div>
     </div>

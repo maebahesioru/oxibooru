@@ -19,7 +19,7 @@
 
 <div class="mt-6 grid gap-6 sm:grid-cols-2">
     <nav>
-        <p class="mb-2 font-medium">Quick links</p>
+        <p class="mb-2 font-medium">クイックリンク</p>
         <ul class="space-y-1 text-sm">
             <li><a class="link" href={q(`submit:${u.name}`)}>{u.uploadedPostCount} uploads</a></li>
             <li><a class="link" href={q(`fav:${u.name}`)}>{u.favoritePostCount} favorites</a></li>
@@ -29,7 +29,7 @@
 
     {#if data.isSelf}
         <nav>
-            <p class="mb-2 font-medium">Only visible to you</p>
+            <p class="mb-2 font-medium">自分だけに表示</p>
             <ul class="space-y-1 text-sm">
                 <li><a class="link" href={q('special:liked')}>{u.likedPostCount} liked posts</a></li>
                 <li><a class="link" href={q('special:disliked')}>{u.dislikedPostCount} disliked posts</a></li>

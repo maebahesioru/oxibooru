@@ -10,7 +10,7 @@
             <code class="rounded bg-base-100 px-3 py-1 font-mono text-lg">{data.password}</code>
         </div>
         <p class="text-sm opacity-70">ログイン後、設定画面でパスワードを変更することを推奨します。</p>
-        <a class="btn btn-primary mt-4" href="/login">Log in</a>
+        <a class="btn btn-primary mt-4" href="/login">ログイン</a>
     {:else}
         <div role="alert" class="alert alert-error">{data.message}</div>
         <a class="btn mt-4" href="/password-reset">やり直す</a>

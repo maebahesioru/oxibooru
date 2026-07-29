@@ -22,7 +22,7 @@
 </script>
 
 <section class="mt-6 space-y-4">
-    <h2 class="text-lg">Comments ({comments.length})</h2>
+    <h2 class="text-lg">コメント ({comments.length})</h2>
     {#each comments as comment (comment.id)}
         <article class="card card-border bg-base-200">
             <div class="card-body gap-2 p-4">
@@ -31,9 +31,9 @@
                         <img src={absUrl(comment.user.avatarUrl)} alt="" class="size-6 rounded-full" />
                         <a class="link font-medium" href={`/user/${comment.user.name}`}>{comment.user.name}</a>
                     {:else}
-                        <span class="font-medium opacity-70">Anonymous</span>
+                        <span class="font-medium opacity-70">匿名</span>
                     {/if}
-                    <span class="opacity-60">commented {formatRelativeTime(comment.creationTime)}</span>
+                    <span class="opacity-60">がコメント {formatRelativeTime(comment.creationTime)}</span>
 
                     <span class="ml-auto flex items-center gap-1">
                         {#if canScore}

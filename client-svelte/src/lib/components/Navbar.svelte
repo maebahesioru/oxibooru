@@ -16,13 +16,13 @@
 
     const items = $derived(
         [
-            { href: '/', label: 'Home', show: true },
-            { href: '/posts', label: 'Posts', show: nav.posts },
-            { href: '/upload', label: 'Upload', show: nav.upload },
-            { href: '/comments', label: 'Comments', show: nav.comments },
-            { href: '/tags', label: 'Tags', show: nav.tags },
-            { href: '/pools', label: 'Pools', show: nav.pools },
-            { href: '/users', label: 'Users', show: nav.users }
+            { href: '/', label: 'ホーム', show: true },
+            { href: '/posts', label: '投稿', show: nav.posts },
+            { href: '/upload', label: 'アップロード', show: nav.upload },
+            { href: '/comments', label: 'コメント', show: nav.comments },
+            { href: '/tags', label: 'タグ', show: nav.tags },
+            { href: '/pools', label: 'プール', show: nav.pools },
+            { href: '/users', label: 'ユーザー', show: nav.users }
         ].filter((i) => i.show)
     );
 
@@ -62,20 +62,20 @@
                     <span class="hidden sm:inline">{user.name}</span>
                 </button>
                 <ul id="user-menu" popover class="dropdown-content menu z-50 w-52 rounded-box bg-base-200 p-2 shadow">
-                    <li><a href={`/user/${user.name}`}>Account</a></li>
-                    <li><a href={`/user/${user.name}/edit`}>Settings</a></li>
+                    <li><a href={`/user/${user.name}`}>アカウント</a></li>
+                    <li><a href={`/user/${user.name}/edit`}>設定</a></li>
                     <li>
                         <form method="POST" action="/logout">
-                            <button class="w-full text-left" type="submit">Log out</button>
+                            <button class="w-full text-left" type="submit">ログアウト</button>
                         </form>
                     </li>
                 </ul>
             </div>
         {:else}
             {#if nav.register}
-                <a href="/register" class="btn btn-ghost btn-sm">Register</a>
+                <a href="/register" class="btn btn-ghost btn-sm">登録</a>
             {/if}
-            <a href="/login" class="btn btn-primary btn-sm">Log in</a>
+            <a href="/login" class="btn btn-primary btn-sm">ログイン</a>
         {/if}
     </div>
 </header>

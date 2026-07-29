@@ -27,16 +27,16 @@
                 class="btn join-item flex-1"
                 class:btn-disabled={!data.prevPostId}
                 href={data.prevPostId ? `/post/${data.prevPostId}${qs}` : undefined}
-                rel="prev">‹ Prev</a
+                rel="prev">‹ 前へ</a
             >
             {#if data.can.edit}
-                <a class="btn join-item flex-1" href={`/post/${post.id}/edit${qs}`}>Edit</a>
+                <a class="btn join-item flex-1" href={`/post/${post.id}/edit${qs}`}>編集</a>
             {/if}
             <a
                 class="btn join-item flex-1"
                 class:btn-disabled={!data.nextPostId}
                 href={data.nextPostId ? `/post/${data.nextPostId}${qs}` : undefined}
-                rel="next">Next ›</a
+                rel="next">次へ ›</a
             >
         </nav>
 
@@ -52,13 +52,13 @@
                         <img src={absUrl(post.user.avatarUrl)} alt="" class="size-5 rounded-full" />
                         <a class="link" href={`/user/${post.user.name}`}>{post.user.name}</a>
                     {:else}
-                        <span class="opacity-70">Anonymous</span>
+                        <span class="opacity-70">匿名</span>
                     {/if}
                     <span class="opacity-70">{formatRelativeTime(post.creationTime)}</span>
                 </p>
 
                 {#if page.data.safetyEnabled}
-                    <p class={safetyColor}>● {post.safety}</p>
+                    <p class={safetyColor}>● {post.safety === 'safe' ? '安全' : post.safety === 'sketchy' ? '怪しい' : '危険'}</p>
                 {/if}
 
                 {#if post.source}
@@ -97,7 +97,7 @@
                 </div>
 
                 <p class="text-xs opacity-70">
-                    Search:
+                    検索:
                     <a class="link" href={`http://iqdb.org/?url=${encodeURIComponent(post.contentUrl)}`}>IQDB</a> ·
                     <a class="link" href={`https://danbooru.donmai.us/posts?tags=md5:${post.checksumMD5}`}>Danbooru</a> ·
                     <a class="link" href={`https://lens.google.com/uploadbyurl?url=${encodeURIComponent(post.contentUrl)}`}>Lens</a>
@@ -107,7 +107,7 @@
 
         {#if post.relations.length}
             <section>
-                <h2 class="mb-2 font-medium">Relations ({post.relations.length})</h2>
+                <h2 class="mb-2 font-medium">関連投稿 ({post.relations.length})</h2>
                 <ul class="flex flex-wrap gap-2">
                     {#each post.relations as rel (rel.id)}
                         <li>
@@ -121,7 +121,7 @@
         {/if}
 
         <section>
-            <h2 class="mb-2 font-medium">Tags ({post.tags.length})</h2>
+            <h2 class="mb-2 font-medium">タグ ({post.tags.length})</h2>
             {#if post.tags.length}
                 <ul class="space-y-0.5 text-sm">
                     {#each post.tags as tag (tag.names[0])}
@@ -162,14 +162,14 @@
 
         {#if data.descriptionHtml}
             <details open class="collapse-arrow collapse bg-base-200">
-                <summary class="collapse-title font-medium">Description</summary>
+                <summary class="collapse-title font-medium">説明</summary>
                 <div class="collapse-content md">{@html data.descriptionHtml}</div>
             </details>
         {/if}
 
         {#if data.can.createComments}
             <section>
-                <h2 class="mb-2 text-lg">Add comment</h2>
+                <h2 class="mb-2 text-lg">コメントを投稿</h2>
                 <CommentEditor action="?/addComment" />
             </section>
         {/if}

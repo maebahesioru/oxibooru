@@ -4,7 +4,7 @@
 </script>
 
 <div class="mx-auto w-full max-w-md">
-    <h1 class="mb-4 text-2xl">Password reset</h1>
+    <h1 class="mb-4 text-2xl">パスワードリセット</h1>
 
     {#if form?.message}
         <div role="alert" class="alert mb-4" class:alert-success={form.success} class:alert-error={!form.success}>
@@ -22,7 +22,7 @@
                 <p class="text-xs opacity-70">
                     パスワードリセット用のリンクを含む E-mail を送信します。リンクを開くと新しいパスワードが発行されます。
                 </p>
-                <button class="btn btn-primary">Proceed</button>
+                <button class="btn btn-primary">次へ</button>
             </div>
         </form>
     {:else}

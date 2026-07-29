@@ -17,7 +17,7 @@
     const makeHref = (offset: number) => `/history?offset=${Math.max(0, offset)}`;
 </script>
 
-<h1 class="mb-4 text-2xl">History</h1>
+<h1 class="mb-4 text-2xl">履歴</h1>
 
 <ul class="space-y-2">
     {#each data.page.results as item (item.time + item.id + item.type)}

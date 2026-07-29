@@ -21,7 +21,7 @@
     <div class="min-w-64 grow">
         <SearchForm action="/pools" query={data.query} helpHref="/help/search/pools" kind="pool" />
     </div>
-    {#if data.canCreate}<a class="btn btn-primary btn-sm" href="/pool/create">Add new pool</a>{/if}
+    {#if data.canCreate}<a class="btn btn-primary btn-sm" href="/pool/create">プールを新規作成</a>{/if}
     {#if data.canEditCategories}<a class="btn btn-outline btn-sm" href="/pool-categories">Pool categories</a>{/if}
 </div>
 
@@ -30,8 +30,8 @@
         <thead>
             <tr>
                 <th><a class="link" href="/pools?query=sort:name">Pool name(s)</a></th>
-                <th class="text-center"><a class="link" href="/pools?query=sort:post-count">Post count</a></th>
-                <th class="text-center"><a class="link" href="/pools?query=sort:creation-time">Created on</a></th>
+                <th class="text-center"><a class="link" href="/pools?query=sort:post-count">投稿数</a></th>
+                <th class="text-center"><a class="link" href="/pools?query=sort:creation-time">作成日</a></th>
             </tr>
         </thead>
         <tbody>

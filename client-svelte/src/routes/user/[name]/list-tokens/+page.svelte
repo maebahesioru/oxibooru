@@ -18,7 +18,7 @@
                     <dl class="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
                         <dt class="opacity-70">Note:</dt>
                         <dd class="flex flex-wrap items-center gap-2">
-                            {token.note ?? 'No note'}
+                            {token.note ?? 'メモなし'}
                             {#if data.can.editToken}
                                 <button class="btn btn-ghost btn-xs" onclick={() => (editing = token.token)}>
                                     (change)
@@ -28,7 +28,7 @@
                         <dt class="opacity-70">Created:</dt>
                         <dd>{formatRelativeTime(token.creationTime)}</dd>
                         <dt class="opacity-70">Expires:</dt>
-                        <dd>{token.expirationTime ? formatRelativeTime(token.expirationTime) : 'No expiration'}</dd>
+                        <dd>{token.expirationTime ? formatRelativeTime(token.expirationTime) : '有効期限なし'}</dd>
                         <dt class="opacity-70">Last used:</dt>
                         <dd>{formatRelativeTime(token.lastUsageTime)}</dd>
                     </dl>
@@ -42,7 +42,7 @@
                                 value={token.note ?? ''}
                                 class="input input-bordered join-item input-sm w-full"
                             />
-                            <button class="btn btn-primary join-item btn-sm">Save</button>
+                            <button class="btn btn-primary join-item btn-sm">保存</button>
                         </form>
                     {/if}
 
@@ -55,7 +55,7 @@
                                 class="btn btn-error btn-outline btn-xs"
                                 title={token.isCurrent ? 'このトークンで認証中のためログアウトされます' : ''}
                             >
-                                {token.isCurrent ? 'Delete and logout' : 'Delete'}
+                                {token.isCurrent ? '削除してログアウト' : 'Delete'}
                             </button>
                         </form>
                     {/if}
@@ -69,15 +69,15 @@
 
 {#if data.can.createToken}
     <form method="POST" action="?/create" class="mt-6 space-y-3">
-        <div class="divider">Create token</div>
+        <div class="divider">トークンを作成</div>
         <label class="form-control">
-            <span class="label-text mb-1 block">Note</span>
+            <span class="label-text mb-1 block">メモ</span>
             <input name="note" class="input input-bordered w-full" />
         </label>
         <label class="form-control">
-            <span class="label-text mb-1 block">Expires</span>
+            <span class="label-text mb-1 block">有効期限</span>
             <input type="date" name="expirationTime" class="input input-bordered w-full" />
         </label>
-        <button class="btn btn-primary">Create token</button>
+        <button class="btn btn-primary">トークンを作成</button>
     </form>
 {/if}

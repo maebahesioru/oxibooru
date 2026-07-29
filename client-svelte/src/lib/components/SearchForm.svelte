@@ -32,6 +32,6 @@
             <Autocomplete target={input} {kind} negation={kind === 'tag'} />
         {/if}
     </div>
-    <button class="btn btn-primary">Search</button>
-    <a class="btn btn-ghost" href={helpHref}>Syntax help</a>
+    <button class="btn btn-primary">検索</button>
+    <a class="btn btn-ghost" href={helpHref}>検索ヘルプ</a>
 </form>

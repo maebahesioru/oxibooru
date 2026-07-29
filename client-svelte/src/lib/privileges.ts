@@ -11,13 +11,13 @@ export const ALL_RANKS: Rank[] = [
 ];
 
 export const RANK_NAMES: Record<Rank, string> = {
-    anonymous: 'Anonymous',
-    restricted: 'Restricted user',
-    regular: 'Regular user',
-    power: 'Power user',
-    moderator: 'Moderator',
-    administrator: 'Administrator',
-    nobody: 'Nobody'
+    anonymous: '匿名',
+    restricted: '制限ユーザー',
+    regular: '一般ユーザー',
+    power: 'パワーユーザー',
+    moderator: 'モデレーター',
+    administrator: '管理者',
+    nobody: 'なし'
 };
 
 /** 旧 api.hasPrivilege() の移植。プレフィックス一致で最小必要ランクを求める。 */

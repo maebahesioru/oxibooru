@@ -9,7 +9,7 @@ function normalize(e: KeyboardEvent): string[] {
     if (key === 'ArrowRight') out.push('right');
     if (key === 'ArrowUp') out.push('up');
     if (key === 'ArrowDown') out.push('down');
-    if (key === 'Delete') out.push('del');
+    if (key === '削除') out.push('del');
     if ((e.metaKey || e.ctrlKey) && key === 's') out.push('mod+s');
     return out;
 }

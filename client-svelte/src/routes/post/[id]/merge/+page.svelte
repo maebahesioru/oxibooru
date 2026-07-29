@@ -38,7 +38,7 @@
                                     placeholder="Post #"
                                     class="input input-bordered join-item input-sm w-full"
                                 />
-                                <button class="btn join-item btn-sm">Search</button>
+                                <button class="btn join-item btn-sm">検索</button>
                             </form>
                         {:else}
                             <p class="font-mono text-sm">Post #{side.post?.id}</p>
@@ -54,7 +54,7 @@
                                 <span class="text-sm">
                                     Merge to this post<br />
                                     <span class="opacity-60">
-                                        {side.post.user?.name ?? 'Anonymous'},
+                                        {side.post.user?.name ?? '匿名'},
                                         {formatRelativeTime(side.post.creationTime)}
                                     </span>
                                 </span>
@@ -86,6 +86,6 @@
             <input type="checkbox" required class="checkbox" /> 統合することを確認しました。
         </label>
 
-        <button class="btn btn-warning" disabled={!data.right}>Merge posts</button>
+        <button class="btn btn-warning" disabled={!data.right}>投稿を統合</button>
     </form>
 </div>

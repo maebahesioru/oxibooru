@@ -7,7 +7,7 @@ const FIELDS = ['id', 'comments', 'commentCount', 'thumbnailUrl'];
 
 export const load: PageServerLoad = async ({ locals, url }) => {
     const { api, can } = locals;
-    if (!can('comment_list')) error(403, "You don't have privileges to view comments.");
+    if (!can('comment_list')) error(403, "閲覧権限がありません:  comments.");
 
     const offset = Number(url.searchParams.get('offset') ?? 0);
     const limit = Number(url.searchParams.get('limit') ?? 10);

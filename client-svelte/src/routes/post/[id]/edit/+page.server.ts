@@ -7,7 +7,7 @@ import { cached } from '$lib/server/cache';
 
 export const load: PageServerLoad = async ({ params, locals, url }) => {
     const { api, can } = locals;
-    if (!can('post_edit')) error(403, "You don't have privileges to edit posts.");
+    if (!can('post_edit')) error(403, "編集権限がありません:  posts.");
 
     const post = await api.get<Post>(`/post/${params.id}`);
     const tagCategories = await cached('tag-categories', 60_000, () =>

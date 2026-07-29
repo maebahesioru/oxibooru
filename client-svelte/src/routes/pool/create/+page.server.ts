@@ -6,7 +6,7 @@ import { splitWhitespace } from '$lib/format';
 import type { Category, Pool } from '$lib/types';
 
 export const load: PageServerLoad = async ({ locals }) => {
-    if (!locals.can('pool_create')) error(403, "You don't have privileges to create pools.");
+    if (!locals.can('pool_create')) error(403, "作成権限がありません:  pools.");
     const categories = await cached('pool-categories', 60_000, () =>
         locals.api.get<{ results: Category[] }>('/pool-categories').then((r) => r.results)
     );

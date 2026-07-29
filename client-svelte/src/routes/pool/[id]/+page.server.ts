@@ -8,7 +8,7 @@ import type { Category, Pool } from '$lib/types';
 
 export const load: PageServerLoad = async ({ params, locals }) => {
     const { api, can } = locals;
-    if (!can('pool_view')) error(403, "You don't have privileges to view pools.");
+    if (!can('pool_view')) error(403, "閲覧権限がありません:  pools.");
 
     const pool = await api.get<Pool>(`/pool/${params.id}`);
     const categories = await cached('pool-categories', 60_000, () =>

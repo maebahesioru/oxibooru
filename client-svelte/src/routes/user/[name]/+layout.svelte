@@ -8,10 +8,10 @@
     const base = $derived(`/user/${encodeURIComponent(data.profile.name)}`);
     const tabs = $derived(
         [
-            { href: base, label: 'Summary', show: true },
-            { href: `${base}/edit`, label: 'Settings', show: data.can.editAnything },
-            { href: `${base}/list-tokens`, label: 'Login tokens', show: data.can.listTokens },
-            { href: `${base}/delete`, label: 'Delete', show: data.can.delete }
+            { href: base, label: '概要', show: true },
+            { href: `${base}/edit`, label: '設定', show: data.can.editAnything },
+            { href: `${base}/list-tokens`, label: 'ログイントークン', show: data.can.listTokens },
+            { href: `${base}/delete`, label: '削除', show: data.can.delete }
         ].filter((t) => t.show)
     );
 </script>

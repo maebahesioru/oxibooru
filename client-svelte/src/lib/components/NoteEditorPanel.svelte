@@ -48,12 +48,12 @@
 
 <div class="space-y-2">
     <div class="flex flex-wrap gap-1">
-        <button type="button" class="btn btn-sm" onclick={addRect}>Add a note</button>
+        <button type="button" class="btn btn-sm" onclick={addRect}>注釈を追加</button>
         <button type="button" class="btn btn-error btn-sm" disabled={selected === null} onclick={removeSelected}>
             Delete
         </button>
-        <button type="button" class="btn btn-ghost btn-sm" onclick={copyAll}>Export</button>
-        <button type="button" class="btn btn-ghost btn-sm" onclick={pasteAll}>Import</button>
+        <button type="button" class="btn btn-ghost btn-sm" onclick={copyAll}>エクスポート</button>
+        <button type="button" class="btn btn-ghost btn-sm" onclick={pasteAll}>インポート</button>
     </div>
 
     <ul class="max-h-40 space-y-1 overflow-y-auto text-sm">

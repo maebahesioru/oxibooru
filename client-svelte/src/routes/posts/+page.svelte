@@ -15,7 +15,7 @@
 </script>
 
 {#if data.forbidden}
-    <div role="alert" class="alert alert-error">You don't have privileges to view posts.</div>
+    <div role="alert" class="alert alert-error">投稿の閲覧権限がありません。</div>
 {:else}
     <SearchForm
         action="/posts"
@@ -26,7 +26,7 @@
     />
 
     <div class="mt-4 flex flex-wrap items-center gap-2 text-sm opacity-70">
-        <span>{data.page.total} posts</span>
+        <span>{data.page.total} 件の投稿</span>
         {#if data.can.bulkEditTags}
             <a class="btn btn-ghost btn-xs" href={makeHref(0) + '&tag='}>Mass tag</a>
         {/if}

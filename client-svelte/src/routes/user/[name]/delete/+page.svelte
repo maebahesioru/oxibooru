@@ -11,5 +11,5 @@
     <label class="label cursor-pointer justify-start gap-2">
         <input type="checkbox" required class="checkbox" /> このアカウントを削除することを確認しました。
     </label>
-    <button class="btn btn-error">Delete account</button>
+    <button class="btn btn-error">アカウントを削除</button>
 </form>

@@ -16,34 +16,34 @@ export function absUrl(url: string): string {
 }
 
 const STEPS: [number, string, number | null][] = [
-    [60, 'a few seconds', null],
-    [120, 'a minute', null],
-    [3600, '% minutes', 60],
-    [7200, 'an hour', null],
-    [86400, '% hours', 3600],
-    [172800, 'a day', null],
-    [2628288, '% days', 86400],
-    [5256576, 'a month', null],
-    [31539456, '% months', 2628288],
-    [63078912, 'a year', null],
-    [Number.MAX_SAFE_INTEGER, '% years', 31539456]
+    [60, '数秒', null],
+    [120, '1分', null],
+    [3600, '%分', 60],
+    [7200, '1時間', null],
+    [86400, '%時間', 3600],
+    [172800, '1日', null],
+    [2628288, '%日', 86400],
+    [5256576, '1ヶ月', null],
+    [31539456, '%ヶ月', 2628288],
+    [63078912, '1年', null],
+    [Number.MAX_SAFE_INTEGER, '%年', 31539456]
 ];
 
 export function formatRelativeTime(time: string | null | undefined): string {
-    if (!time) return 'never';
+    if (!time) return 'なし';
     const then = Date.parse(time);
     const now = Date.now();
     const diff = Math.abs(now - then) / 1000;
     const future = now < then;
-    let text = 'a long time';
+    let text = 'かなり前';
     for (const [limit, template, divider] of STEPS) {
         if (diff < limit) {
             text = divider ? template.replace('%', String(Math.round(diff / divider))) : template;
             break;
         }
     }
-    if (text === 'a day') return future ? 'tomorrow' : 'yesterday';
-    return future ? `in ${text}` : `${text} ago`;
+    if (text === '1日') return future ? '明日' : '昨日';
+    return future ? `${text}後` : `${text}前`;
 }
 
 export function cssCategory(name: string | null | undefined, prefix: 'tag' | 'pool'): string {

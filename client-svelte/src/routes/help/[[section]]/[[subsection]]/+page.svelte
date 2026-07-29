@@ -23,20 +23,20 @@
                 {data.siteName} は Danbooru・Gelbooru・Moebooru に着想を得た画像ボードエンジン
                 （oxibooru / szurubooru 系）のフロントエンドです。
             </p>
-            <h2>Registration</h2>
+            <h2>登録方法</h2>
             <p>
                 登録時の E-mail は Gravatar の取得とパスワード再発行にのみ使用され、他のユーザーには公開されません。
                 アカウントはいつでも削除できますが、アップロードした投稿は残ります。
             </p>
         {:else if data.section === 'keyboard'}
             <p>キーボードで素早く操作できます。</p>
-            <HelpTable head={['Hotkey', 'Description']} rows={help.KEYBOARD} mono />
+            <HelpTable head={['ショートカット', '説明']} rows={help.KEYBOARD} mono />
             <p class="text-sm opacity-70">
                 ショートカットは設定画面でオン／オフを切り替えられます。
             </p>
         {:else if data.section === 'comments'}
             <p>コメントは Markdown に加えて次の拡張記法が使えます。</p>
-            <HelpTable head={['Syntax', 'Description']} rows={help.COMMENT_SYNTAX} mono />
+            <HelpTable head={['構文', '説明']} rows={help.COMMENT_SYNTAX} mono />
             <h2>画像サイズ指定</h2>
             <ul>
                 <li><code>![alt](href =WIDTHx "title")</code></li>
@@ -118,7 +118,7 @@
                 <p>なし。</p>
             {:else}
                 <p>検索クエリは空白区切りのトークンで構成されます。</p>
-                <HelpTable head={['Syntax', 'Token type']} rows={help.TOKEN_TYPES} mono />
+                <HelpTable head={['構文', 'トークン種別']} rows={help.TOKEN_TYPES} mono />
                 <h2>範囲・複合値</h2>
                 <HelpTable rows={help.RANGES} mono />
                 <h2>日付</h2>

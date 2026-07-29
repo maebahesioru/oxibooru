@@ -72,7 +72,7 @@
             title={`post ${post.id}`}
             class="bg-base-300"
         >
-            <div role="alert" class="alert alert-warning">Flash はサポートされていません。</div>
+            <div role="alert" class="alert alert-warning">Flashはサポートされていません</div>
         </object>
     {/if}
 
@@ -82,7 +82,7 @@
 </figure>
 
 <div class="mt-2 flex flex-wrap justify-center gap-1 text-xs">
-    {#each [['fit-original', 'Original'], ['fit-width', 'Width'], ['fit-height', 'Height'], ['fit-both', 'Both']] as [value, label] (value)}
+    {#each [['fit-original', 'オリジナル'], ['fit-width', '幅に合わせる'], ['fit-height', '高さに合わせる'], ['fit-both', '両方に合わせる']] as [value, label] (value)}
         <button class="btn btn-ghost btn-xs" class:btn-active={mode === value} onclick={() => (mode = value)}>
             {label}
         </button>

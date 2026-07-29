@@ -14,7 +14,7 @@ interface Token {
 
 export const load: PageServerLoad = async ({ params, locals, parent }) => {
     const { can } = await parent();
-    if (!can.listTokens) error(403, "You don't have privileges to view user tokens.");
+    if (!can.listTokens) error(403, "閲覧権限がありません:  user tokens.");
 
     const current = (() => {
         try {

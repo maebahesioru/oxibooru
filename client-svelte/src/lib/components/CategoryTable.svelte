@@ -44,10 +44,10 @@
     <table class="table table-sm">
         <thead>
             <tr>
-                <th>Category name</th>
-                <th>Color</th>
-                {#if withOrder}<th class="w-24">Order</th>{/if}
-                <th class="text-center">Usages</th>
+                <th>カテゴリ名</th>
+                <th>色</th>
+                {#if withOrder}<th class="w-24">順序</th>{/if}
+                <th class="text-center">使用数</th>
                 <th></th>
             </tr>
         </thead>
@@ -132,5 +132,5 @@
 </div>
 
 {#if can.create}
-    <button type="button" class="btn btn-ghost btn-sm mt-2" onclick={add}>Add new category</button>
+    <button type="button" class="btn btn-ghost btn-sm mt-2" onclick={add}>カテゴリを追加</button>
 {/if}

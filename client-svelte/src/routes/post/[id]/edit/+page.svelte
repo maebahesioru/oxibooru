@@ -48,7 +48,7 @@
 
         {#if page.data.safetyEnabled && data.can.safety}
             <fieldset class="fieldset rounded-box border border-base-300 p-3">
-                <legend class="fieldset-legend">Safety</legend>
+                <legend class="fieldset-legend">セーフティ</legend>
                 <div class="join w-full">
                     {#each ['safe', 'sketchy', 'unsafe'] as safety (safety)}
                         <input
@@ -73,7 +73,7 @@
 
         {#if data.can.relations}
             <label class="form-control">
-                <span class="label-text mb-1 block">Relations</span>
+                <span class="label-text mb-1 block">関連</span>
                 <input
                     name="relations"
                     value={post.relations.map((r) => r.id).join(' ')}
@@ -86,7 +86,7 @@
 
         {#if data.can.flags && post.type === 'video'}
             <fieldset class="fieldset rounded-box border border-base-300 p-3">
-                <legend class="fieldset-legend">Flags</legend>
+                <legend class="fieldset-legend">フラグ</legend>
                 <label class="label cursor-pointer justify-start gap-2">
                     <input type="checkbox" name="flagLoop" class="checkbox" checked={post.flags.includes('loop')} />
                     Loop video
@@ -100,33 +100,33 @@
 
         {#if data.can.source}
             <label class="form-control">
-                <span class="label-text mb-1 block">Source</span>
+                <span class="label-text mb-1 block">ソース</span>
                 <textarea name="source" rows="3" class="textarea textarea-bordered w-full">{post.source ?? ''}</textarea>
             </label>
         {/if}
 
         {#if data.can.content}
             <fieldset class="fieldset rounded-box border border-base-300 p-3">
-                <legend class="fieldset-legend">Replace content</legend>
+                <legend class="fieldset-legend">内容を置換</legend>
                 <FileDropper name="content" urlName="contentUrl" allowUrls />
             </fieldset>
         {/if}
 
         {#if data.can.thumbnail}
             <fieldset class="fieldset rounded-box border border-base-300 p-3">
-                <legend class="fieldset-legend">Custom thumbnail</legend>
+                <legend class="fieldset-legend">カスタムサムネイル</legend>
                 <FileDropper name="thumbnail" />
             </fieldset>
         {/if}
 
         <div class="rounded-box border border-base-300 p-3">
-            <p class="mb-2 text-sm font-medium">Management</p>
+            <p class="mb-2 text-sm font-medium">管理</p>
             <div class="flex flex-col gap-2">
                 {#if data.can.feature}
-                    <button class="btn btn-outline btn-sm" formaction="?/feature">Feature on main page</button>
+                    <button class="btn btn-outline btn-sm" formaction="?/feature">メインページに表示</button>
                 {/if}
                 {#if data.can.merge}
-                    <a class="btn btn-outline btn-sm" href={`/post/${post.id}/merge`}>Merge with another post</a>
+                    <a class="btn btn-outline btn-sm" href={`/post/${post.id}/merge`}>他の投稿と統合</a>
                 {/if}
                 {#if data.can.delete}
                     <button
