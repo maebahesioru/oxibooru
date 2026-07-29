@@ -189,15 +189,10 @@ macro_rules! apply_sort {
     }};
 }
 
-/// Applies seeded random ordering to the given `query`.
+/// Applies truly random ordering to the given `query`.
 #[macro_export]
 macro_rules! apply_random_sort {
     ($conn:expr, $client:expr, $query:expr, $criteria:expr) => {{
-        if let Err(err) = $crate::search::set_seed($conn, $client) {
-            tracing::warn!(
-                "Unable to set seed for random sort. Results may not be consistent between requests. Details:\n{err}"
-            );
-        }
         match $criteria.extra_args {
             Some(args) => $query
                 .order($crate::search::random())

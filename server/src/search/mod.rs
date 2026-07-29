@@ -34,14 +34,7 @@ pub trait Builder<'a>: Sized {
     }
 
     /// Executes both load and count queries for all rows matching search criteria.
-    /// If the search has a random sort and they are viewing the first page of results,
-    /// then this will also mutate the user's search seed.
     fn list(&mut self, conn: &mut PgConnection) -> ApiResult<(u64, Vec<i64>)> {
-        let criteria = self.criteria();
-        if criteria.random_sort && criteria.extra_args.is_some_and(|args| args.offset == 0) {
-            change_user_seed(conn, criteria.ctx.client)?;
-        }
-
         let total = u64::try_from(self.count(conn)?).unwrap_or(0);
         let results = self.load(conn)?;
         Ok((total, results))
@@ -230,39 +223,4 @@ struct CacheState {
 #[declare_sql_function]
 extern "SQL" {
     fn random() -> BigInt;
-}
-
-/// Sets the global postgresql random seed to the search seed of the `client`.
-fn set_seed(conn: &mut PgConnection, client: Client) -> QueryResult<()> {
-    use crate::schema::user;
-
-    let seed = match client.id {
-        Some(user_id) => user::table.find(user_id).select(user::search_seed).first(conn)?,
-        None => 0.0,
-    };
-    diesel::sql_query("SELECT setseed($1);")
-        .bind::<Float, _>(seed)
-        .execute(conn)
-        .map(|_| ())
-}
-
-/// Cycles search seed for `client` to a new random seed.
-fn change_user_seed(conn: &mut PgConnection, client: Client) -> QueryResult<()> {
-    use crate::schema::user;
-
-    if let Some(user_id) = client.id {
-        let rng = &mut OsRng;
-        let &random_bytes = rng
-            .next_u32()
-            .to_le_bytes()
-            .array_windows()
-            .next()
-            .expect("Size of u32 > size of u16");
-        let random_i16 = i16::from_le_bytes(random_bytes);
-        let new_seed = f32::from(random_i16) / -f32::from(i16::MIN);
-        diesel::update(user::table.find(user_id))
-            .set(user::search_seed.eq(new_seed))
-            .execute(conn)?;
-    }
-    Ok(())
 }

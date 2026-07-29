@@ -42,7 +42,7 @@
 
         <section class="card card-border bg-base-200">
             <div class="card-body gap-3 p-4 text-sm">
-                <a class="link link-hover font-medium" href={post.contentUrl} download>
+                <a class="link link-hover font-medium" href={absUrl(post.contentUrl)} download>
                     ⬇ {formatFileSize(post.fileSize)} {mimeLabel(post.mimeType)}
                     ({post.canvasWidth}×{post.canvasHeight})
                 </a>
@@ -98,9 +98,9 @@
 
                 <p class="text-xs opacity-70">
                     検索:
-                    <a class="link" href={`http://iqdb.org/?url=${encodeURIComponent(post.contentUrl)}`}>IQDB</a> ·
+                    <a class="link" href={`http://iqdb.org/?url=${encodeURIComponent(absUrl(post.contentUrl))}`}>IQDB</a> ·
                     <a class="link" href={`https://danbooru.donmai.us/posts?tags=md5:${post.checksumMD5}`}>Danbooru</a> ·
-                    <a class="link" href={`https://lens.google.com/uploadbyurl?url=${encodeURIComponent(post.contentUrl)}`}>Lens</a>
+                    <a class="link" href={`https://lens.google.com/uploadbyurl?url=${encodeURIComponent(absUrl(post.contentUrl))}`}>Lens</a>
                 </p>
             </div>
         </section>
