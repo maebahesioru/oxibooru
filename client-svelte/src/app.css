@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+@plugin "daisyui" {
+    themes: booru --default, booru-dark --prefersdark;
+    logs: false;
+}
+
+@plugin "daisyui/theme" {
+    name: 'booru';
+    default: true;
+    color-scheme: light;
+    --color-base-100: oklch(100% 0 0);
+    --color-base-200: oklch(97% 0 0);
+    --color-base-300: oklch(93% 0 0);
+    --color-base-content: oklch(21% 0.006 285.885);
+    --color-primary: oklch(70% 0.14 233);
+    --color-primary-content: oklch(100% 0 0);
+    --color-secondary: oklch(70% 0.16 320);
+    --color-accent: oklch(78% 0.16 70);
+    --color-neutral: oklch(35% 0.01 260);
+    --color-info: oklch(72% 0.13 233);
+    --color-success: oklch(72% 0.16 150);
+    --color-warning: oklch(80% 0.16 85);
+    --color-error: oklch(64% 0.2 25);
+    --radius-selector: 0.25rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.5rem;
+    --border: 1px;
+}
+
+@plugin "daisyui/theme" {
+    name: 'booru-dark';
+    color-scheme: dark;
+    --color-base-100: oklch(19% 0.01 265);
+    --color-base-200: oklch(23% 0.012 265);
+    --color-base-300: oklch(27% 0.014 265);
+    --color-base-content: oklch(92% 0.005 265);
+    --color-primary: oklch(72% 0.14 233);
+    --color-primary-content: oklch(15% 0.02 233);
+    --color-secondary: oklch(72% 0.16 320);
+    --color-accent: oklch(80% 0.16 70);
+    --color-neutral: oklch(30% 0.01 265);
+    --color-info: oklch(72% 0.13 233);
+    --color-success: oklch(72% 0.16 150);
+    --color-warning: oklch(80% 0.16 85);
+    --color-error: oklch(66% 0.2 25);
+    --radius-selector: 0.25rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.5rem;
+    --border: 1px;
+}
+
+@theme {
+    --font-sans: 'Inter var', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* 透明グリッド（旧 transparency-grid の代替） */
+@utility transparency-grid {
+    background-image:
+        linear-gradient(45deg, var(--color-base-300) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--color-base-300) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--color-base-300) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--color-base-300) 75%);
+    background-size: 20px 20px;
+    background-position:
+        0 0,
+        0 10px,
+        10px -10px,
+        -10px 0;
+}
+
+/* Markdown 本文 */
+.md :where(p) {
+    margin-block: 0.75em;
+}
+.md :where(ul, ol) {
+    margin-block: 0.75em;
+    padding-inline-start: 1.5em;
+    list-style: revert;
+}
+.md :where(blockquote) {
+    border-inline-start: 3px solid var(--color-base-300);
+    padding-inline-start: 0.75em;
+    color: color-mix(in oklch, currentColor 70%, transparent);
+}
+.md :where(code) {
+    background: var(--color-base-200);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-field);
+}
+.md :where(a) {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+.md .spoiler {
+    background: currentColor;
+    border-radius: 0.2em;
+}
+.md .spoiler:hover {
+    background: transparent;
+}
+.md .sjis {
+    font-family: 'MS PGothic', 'IPAMonaPGothic', monospace;
+    white-space: pre;
+    line-height: 1;
+}
+
+img {
+    image-orientation: from-image;
+}

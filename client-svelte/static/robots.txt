@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /upload
+Disallow: /settings
+Disallow: /user/
+Allow: /
