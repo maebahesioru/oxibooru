@@ -81,40 +81,40 @@
             </nav>
 
             {#if sub === 'posts'}
-                <h2>Anonymous tokens</h2>
+                <h2>匿名トークン</h2>
                 <p><code>tag</code> と同じ扱いです。</p>
-                <h2>Named tokens</h2>
+                <h2>名前付きトークン</h2>
                 <HelpTable rows={help.POST_NAMED} mono />
-                <h2>Sort style tokens</h2>
+                <h2>ソート指定</h2>
                 <HelpTable rows={help.POST_SORT} mono />
-                <h2>Special tokens</h2>
+                <h2>特殊トークン</h2>
                 <HelpTable rows={help.POST_SPECIAL} mono />
             {:else if sub === 'tags'}
-                <h2>Anonymous tokens</h2>
+                <h2>匿名トークン</h2>
                 <p><code>name</code> と同じ扱いです。</p>
-                <h2>Named tokens</h2>
+                <h2>名前付きトークン</h2>
                 <HelpTable rows={help.TAG_NAMED} mono />
-                <h2>Sort style tokens</h2>
+                <h2>ソート指定</h2>
                 <HelpTable rows={help.TAG_SORT} mono />
-                <h2>Special tokens</h2>
+                <h2>特殊トークン</h2>
                 <p>なし。</p>
             {:else if sub === 'pools'}
-                <h2>Anonymous tokens</h2>
+                <h2>匿名トークン</h2>
                 <p><code>name</code> と同じ扱いです。</p>
-                <h2>Named tokens</h2>
+                <h2>名前付きトークン</h2>
                 <HelpTable rows={help.POOL_NAMED} mono />
-                <h2>Sort style tokens</h2>
+                <h2>ソート指定</h2>
                 <HelpTable rows={help.POOL_SORT} mono />
-                <h2>Special tokens</h2>
+                <h2>特殊トークン</h2>
                 <p>なし。</p>
             {:else if sub === 'users'}
-                <h2>Anonymous tokens</h2>
+                <h2>匿名トークン</h2>
                 <p><code>name</code> と同じ扱いです。</p>
-                <h2>Named tokens</h2>
+                <h2>名前付きトークン</h2>
                 <HelpTable rows={help.USER_NAMED} mono />
-                <h2>Sort style tokens</h2>
+                <h2>ソート指定</h2>
                 <HelpTable rows={help.USER_SORT} mono />
-                <h2>Special tokens</h2>
+                <h2>特殊トークン</h2>
                 <p>なし。</p>
             {:else}
                 <p>検索クエリは空白区切りのトークンで構成されます。</p>
