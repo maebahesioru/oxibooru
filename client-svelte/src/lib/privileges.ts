@@ -24,14 +24,9 @@ export const RANK_NAMES: Record<Rank, string> = {
 export function makeCan(info: Info, user: User | null) {
     const myRank = user ? ALL_RANKS.indexOf(user.rank) : 0;
     return (lookup: string): boolean => {
-        let min: number | null = null;
-        for (const [key, rank] of Object.entries(info.config.privileges)) {
-            if (!key.startsWith(lookup)) continue;
-            const idx = ALL_RANKS.indexOf(rank);
-            if (min === null || idx < min) min = idx;
-        }
-        if (min === null) return false;
-        return myRank >= min;
+        const required = info.config.privileges[lookup];
+        if (!required) return false;
+        return myRank >= ALL_RANKS.indexOf(required);
     };
 }
 
