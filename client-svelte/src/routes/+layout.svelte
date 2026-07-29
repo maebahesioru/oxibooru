@@ -34,12 +34,10 @@
         {@render children()}
     </main>
 
-    <footer class="footer footer-center border-t border-base-300 bg-base-200 p-4 text-xs">
-        <p>
-            {data.siteName} &middot;
-            <a class="link" href="/help">Help</a> &middot;
-            <a class="link" href="/history">History</a>
-        </p>
+    <footer class="border-t border-base-300 bg-base-200 p-4 text-center text-xs">
+        {data.siteName} &middot;
+        <a class="link" href="/help">Help</a> &middot;
+        <a class="link" href="/history">History</a>
     </footer>
 </div>
 
