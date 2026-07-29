@@ -3,7 +3,7 @@ import { error, fail } from '@sveltejs/kit';
 import { renderMarkdown } from '$lib/markdown';
 import type { Paged, Post } from '$lib/types';
 
-const FIELDS = ['id', 'comments', 'commentCount', 'thumbnailUrl'];
+const FIELDS = ['id', 'comments', 'commentCount', 'thumbnailUrl', 'contentUrl'];
 
 export const load: PageServerLoad = async ({ locals, url }) => {
     const { api, can } = locals;

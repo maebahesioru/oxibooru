@@ -6,6 +6,7 @@ import type { Paged, Post } from '$lib/types';
 const FIELDS = [
     'id',
     'thumbnailUrl',
+    'contentUrl',
     'type',
     'safety',
     'score',
