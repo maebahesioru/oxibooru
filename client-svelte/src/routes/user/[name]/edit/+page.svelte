@@ -1,5 +1,6 @@
 <script lang="ts">
     import FileDropper from '$lib/components/FileDropper.svelte';
+    import { absUrl } from '$lib/format';
     import type { ActionData, PageData } from './$types';
 
     let { data, form }: { data: PageData; form: ActionData } = $props();
